@@ -35,7 +35,7 @@ public class Anagram {
 			return false;
 		}
 		for(int i = 0; i < base.length(); i++){
-			if(charof(base.charAt(i), check) == -1 && charof(base.charAt(i), check) != ((char)16)){
+			if(charof(base.charAt(i), check) == -1 && charof(base.charAt(i), check) != ((char)32)){
 				return false;
 			}else if(base.charAt(i) != (char)32){
 				check = removefirstChar(base.charAt(i), check);
@@ -50,9 +50,13 @@ public class Anagram {
 	public static String preProcess(String str) {
 		String chng = "";
 		for(int i = 0; i < str.length(); i ++){
-			if((char)(str.charAt(i)) >= 65 && (char)(str.charAt(i)) <= 90 || (char)(str.charAt(i)) == 16){
+			if((char)(str.charAt(i)) >= 65 && (char)(str.charAt(i)) <= 90){
 				chng += (char)(str.charAt(i) + 32);
-			}else if((char)(str.charAt(i)) >= 97 && (char)(str.charAt(i)) <= 122){
+			}
+			if(str.charAt(i) ==(char)32){
+				chng += " ";
+			}
+			else if((char)(str.charAt(i)) >= 97 && (char)(str.charAt(i)) <= 122){
 				chng += (char)(str.charAt(i));
 			}
 		}
