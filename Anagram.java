@@ -7,6 +7,8 @@ public class Anagram {
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
 		System.out.println(isAnagram("null", "nu l"));//false
+		System.out.println(isAnagram("A man A plan a canal: panama ", "Alan Annam alpaca Panama"));
+		
 		// Tests the preProcess function.
 		System.out.println(preProcess("What? No way!!!"));
 		
@@ -31,9 +33,6 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		String base = preProcess(str1);
 		String check = preProcess(str2);
-		if(base.length() != check.length()){
-			return false;
-		}
 		for(int i = 0; i < base.length(); i++){
 			if(charof(base.charAt(i), check) == -1 && charof(base.charAt(i), check) != ((char)32)){
 				return false;
